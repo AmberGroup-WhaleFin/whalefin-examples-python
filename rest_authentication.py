@@ -14,8 +14,8 @@ if(API_KEY is None or API_SECRET is None):
     print("Please set API_KEY and API_SECRET and re-run")
     sys.exit(1)
 
-DEV_BASE_URI = "be-alpha.whalefin.com"
-PROD_BASE_URI = "be.whalefin.com"
+DEV_BASE_URI = "https://be-alpha.whalefin.com"
+PROD_BASE_URI = "https://be.whalefin.com"
 BASE_URI = PROD_BASE_URI
 
 def query(urlPath = '/api/v2/trade/rfq', params = { "quantity": 10, "direction": "BUY", "symbol":"BTC_USD" }):
@@ -37,8 +37,9 @@ def query(urlPath = '/api/v2/trade/rfq', params = { "quantity": 10, "direction":
     resp = requests.get(BASE_URI + path, headers=headers)
     
     # Do something with the results
-    logging.debug(resp.json())
+    logging.info(resp.json())
     return {}
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO)
     query()
