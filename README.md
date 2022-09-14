@@ -15,3 +15,6 @@ So as not to store API Keys and Secrets in the code, please set the following as
 ## Examples
 - ### [websocket_marketdata.py](websocket_marketdata.py)
 Logon and subscribe to Whalefin's Websocket market data feed.
+
+- ### [rest_authentication.py](rest_authentication.py)
+How to sign API requests and set the correct header fields
