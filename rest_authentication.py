@@ -42,4 +42,13 @@ def query(urlPath = '/api/v2/trade/rfq', params = { "quantity": 10, "direction":
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
-    query()
+    options = sys.argv
+    # Some example use cases
+    if len(options) == 1 or options[1] == 'rfq':
+        query()
+    elif options[1] == 'earn':
+        query('/api/v2/earn/products', {"type": "FIXED", "ccy": "BTC"})
+    elif options[1] == 'symbols':
+        query('/api/v2/trade/symbols')
+    else:
+        logging.info('Unknown Option')
